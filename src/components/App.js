@@ -7,6 +7,7 @@ import Newmap from './home/Newmap'
 import Login from './extras/Login';
 import Userpage from './pages/Userpage'
 import Adshome from './ads/Adshome'
+import Comparepage from './pages/Comparepage'
 function App() {
   return (
       <Router>
@@ -51,6 +52,19 @@ function App() {
                </div>
                </div></body>
                </React.Fragment>
+            )}/>
+            <Route exact path='/compare' render={(props)=>(
+              <React.Fragment>
+                  <body className="nav-md">
+               <div className="container body">
+               <div className="main_container">
+               <Topheader/>
+               <Sidenav/>
+               <Comparepage/>
+               </div>
+               </div></body>
+              </React.Fragment>
+
             )}/>
 
           

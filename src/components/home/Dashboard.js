@@ -112,7 +112,7 @@ class Dashboard extends Component {
                     <div className="col-md-4 col-sm-4 ">
                         <div className="x_panel tile fixed_height_320">
                         <div className="x_title">
-                            <h2>App Versions</h2>
+                            <h2>Social Media</h2>
                             <ul className="nav navbar-right panel_toolbox">
                             <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
                             </li>
@@ -130,7 +130,7 @@ class Dashboard extends Component {
                         </div>
                         
                         <div className="x_content">
-                            <h4>App Usage across versions</h4>
+                            <h4>Ads Target Across Social Media</h4>
                             <div className="widget_summary">
                             <div className="w_left w_25">
                                 <span>Facebook</span>
@@ -239,7 +239,7 @@ class Dashboard extends Component {
                     <div className="col-md-4 col-sm-4 ">
                         <div className="x_panel tile fixed_height_320">
                         <div className="x_title">
-                            <h2>Quick Settings</h2>
+                            <h2>Devices</h2>
                             <ul className="nav navbar-right panel_toolbox">
                             <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
                             </li>
@@ -255,32 +255,58 @@ class Dashboard extends Component {
                             </ul>
                             <div className="clearfix" />
                         </div>
+                        
                         <div className="x_content">
-                            <div className="dashboard-widget-content">
-                            <ul className="quick-list">
-                                <li><i className="fa fa-calendar-o" /><a href="#">Settings</a>
-                                </li>
-                                <li><i className="fa fa-bars" /><a href="#">Subscription</a>
-                                </li>
-                                <li><i className="fa fa-bar-chart" /><a href="#">Auto Renewal</a> </li>
-                                <li><i className="fa fa-line-chart" /><a href="#">Achievements</a>
-                                </li>
-                                <li><i className="fa fa-bar-chart" /><a href="#">Auto Renewal</a> </li>
-                                <li><i className="fa fa-line-chart" /><a href="#">Achievements</a>
-                                </li>
-                                <li><i className="fa fa-area-chart" /><a href="#">Logout</a>
-                                </li>
-                            </ul>
-                            <div className="sidebar-widget">
-                                <h4>Profile Completion</h4>
-                                <canvas width={150} height={80} id="chart_gauge_01" className style={{width: 160, height: 100}} />
-                                <div className="goal-wrapper">
-                                <span id="gauge-text" className="gauge-value pull-left">0</span>
-                                <span className="gauge-value pull-left">%</span>
-                                <span id="goal-text" className="goal-value pull-right">100%</span>
+                            <h4>Targeted Platform/Devices</h4>
+                            <div className="widget_summary">
+                            <div className="w_left w_25">
+                                <span>Android</span>
+                            </div>
+                            <div className="w_center w_55">
+                                <div className="progress">
+                                <div className="progress-bar bg-green" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100} style={{width:String(((this.state.graph_data.ad_target.targets.android/this.state.graph_data.ad_target.total_target)*100).toFixed(2))+'%'}}>
+                                    <span className="sr-only">60% Complete</span>
+                                </div>
                                 </div>
                             </div>
+                            <div className="w_right w_20">
+                                <span>{this.state.graph_data.ad_target.targets.android}</span>
                             </div>
+                            <div className="clearfix" />
+                            </div>
+                            <div className="widget_summary">
+                            <div className="w_left w_25">
+                                <span>Apple Products</span>
+                            </div>
+                            <div className="w_center w_55">
+                                <div className="progress">
+                                <div className="progress-bar bg-green" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100} style={{width:String(((this.state.graph_data.ad_target.targets.apple/this.state.graph_data.ad_target.total_target)*100).toFixed(2))+'%'}}>
+                                    <span className="sr-only">60% Complete</span>
+                                </div>
+                                </div>
+                            </div>
+                            <div className="w_right w_20">
+                            <span>{this.state.graph_data.ad_target.targets.apple}</span>
+                            </div>
+                            <div className="clearfix" />
+                            </div>
+                            <div className="widget_summary">
+                            <div className="w_left w_25">
+                                <span>Web Browser</span>
+                            </div>
+                            <div className="w_center w_55">
+                                <div className="progress">
+                                <div className="progress-bar bg-green" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100} style={{width:String(((this.state.graph_data.ad_target.targets.webbrowser/this.state.graph_data.ad_target.total_target)*100).toFixed(2))+'%'}}>
+                                    <span className="sr-only">60% Complete</span>
+                                </div>
+                                </div>
+                            </div>
+                            <div className="w_right w_20">
+                                <span>{this.state.graph_data.ad_target.targets.webbrowser}</span>
+                            </div>
+                            <div className="clearfix" />
+                            </div>
+                        
                         </div>
                         </div>
                     </div>
@@ -291,7 +317,7 @@ class Dashboard extends Component {
                         <div className="col-md-12 col-sm-12 ">
                             <div className="x_panel">
                             <div className="x_title">
-                                <h2>Visitors location <small>geo-presentation</small></h2>
+                                <h2>Admin location <small>geo-presentation</small></h2>
                                 <ul className="nav navbar-right panel_toolbox">
                                 <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
                                 </li>
@@ -310,7 +336,7 @@ class Dashboard extends Component {
                             <div className="x_content">
                                 <div className="dashboard-widget-content">
                                 <div className="col-md-4 hidden-small">
-                                    <h2 className="line_30">125.7k Views from 60 countries</h2>
+                                    <h2 className="line_30">{ this.state.geo != null ? this.state.geo.admin_total :''} Admins from {this.state.geo != null ?this.state.geo.status.length : ''} countries</h2>
                                     <table className="countries_list">
                                     <tbody>
                                     {this.state.geo !==null ? this.state.geo.status.map((val,i)=>(
