@@ -6,7 +6,7 @@ class Chartpage extends Component {
     state={
         disp:false,
         dropdisp:false,
-        month:'May',
+        month:'Jun',
         week:'Default',
         chartdisp:'socilamedia',
         chartfilter:'monthly',
@@ -93,7 +93,18 @@ class Chartpage extends Component {
             
               let new_key=Object.keys(bla)
               let new_val=Object.values(bla)
-              console.log(chartdisp)
+              console.log(new_val)
+              // let new_tot=null
+               let new_tot=new_val.map((val)=>{
+                  return val.total
+                })
+              let facebook=new_val.map((val)=>{
+                return val.facebook
+              })
+              let instagram=new_val.map((val)=>{
+                return val.instagram
+              })
+              console.log(facebook,instagram)
               let old_state=this.state.options
               let old_series=this.state.series
               if (old_series.length >1){
@@ -101,15 +112,15 @@ class Chartpage extends Component {
               }
               let new_state=update(old_state,{xaxis:{categories:{$set:new_key}}})
               
-              let new_series=update(old_series,{[0]:{data:{$set:new_val}}})
+              let new_series=update(old_series,{[0]:{data:{$set:new_tot}}})
               let new_title=update(new_series,{[0]:{name:{$set:'Ads Uploaded'}}})
               let updated_distribut=update(new_state,{plotOptions:{bar:{distributed:{$set:true}}}})
               console.log(new_val)
-              
-              let total=new_val.reduce(reducer)
+     
+              let total=new_tot.reduce(reducer)
               let tablegraph=[]
               for (let i = 0; i < new_key.length; i++) {
-                tablegraph.push({'key':new_key[i],'value':new_val[i]})
+                tablegraph.push({'key':new_key[i],'value':new_tot[i]})
                 
               }
               console.log(tablegraph)
@@ -179,7 +190,7 @@ class Chartpage extends Component {
               <div className="dashboard_graph" style={{height:'450px'}}>
               <div className="row x_title">
                   <div className="col-md-6">
-                  <h3>Network Activities <small>Graph title sub-title</small></h3>
+        <h3>{this.state.chartdisp == 'socilamedia' ? 'Social Media Tracker' : 'Ads Tracker'}</h3>
                   </div>
                   <div className="col-md-6">
                   <ul className="nav navbar-right panel_toolbox">

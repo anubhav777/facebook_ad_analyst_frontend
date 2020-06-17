@@ -24,7 +24,9 @@
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.1.1",
+    "video-react": "^0.14.1",
     "webpack": "^4.43.0",
     "yup": "^0.28.5"
   },

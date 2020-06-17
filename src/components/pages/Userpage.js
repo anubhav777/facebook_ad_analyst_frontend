@@ -230,7 +230,7 @@ class User_page extends Component {
                 <div className="col-md-12 col-sm-12  ">
                 <div className="x_panel">
                     <div className="x_title">
-                    <h2>Table design <small>Custom design</small></h2>
+                    <h2>Ads Table </h2>
                     <ul className="nav navbar-right panel_toolbox">
                         <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
                         </li>
@@ -247,7 +247,7 @@ class User_page extends Component {
                     <div className="clearfix" />
                     </div>
                     <div className="x_content">
-                    <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
+                    <p>Please click on  <code>Pages Name</code> to see their data</p>
                     <div className="table-responsive">
                     <DataTable
                         

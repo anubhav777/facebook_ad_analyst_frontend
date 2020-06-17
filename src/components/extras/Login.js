@@ -11,7 +11,7 @@ class Login extends Component {
     }
     render() {
         if(this.state.redirect){
-            return (<Redirect to ="/"/>)
+            return (<Redirect to ="/pages"/>)
         }
         else{
         return (
@@ -80,8 +80,8 @@ class Login extends Component {
                                                             <div className="clearfix" />
                                                             <br />
                                                             <div>
-                                                            <h1><i className="fa fa-paw" /> Gentelella Alela!</h1>
-                                                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                                                            <h1><i className="fa fa-paw" /> Rival Peek</h1>
+                                                            <p>©2016 All Rights Reserved. Rival Peek. Privacy and Terms</p>
                                                             </div>
                                                         </div>
                                                         </form>

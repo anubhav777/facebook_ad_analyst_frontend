@@ -180,32 +180,52 @@ class Comparepage extends Component {
                                     <td>{this.state.firstarr.avg.avg_monthly_ad}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                    <td>6</td>
+                                        <td>6</td>
+                                    <td>No.Of Promotional ads</td>
+                                    <td>{Number(this.state.firstarr.active_ads)-Number(this.state.firstarr.sponsor)}</td>
+                                    </tr>
+                                    <tr className="even pointer">
+                                    <td>7</td>
+                                    <td>No.Of Product/Services Ads</td>
+                                    <td>{this.state.firstarr.sponsor}</td>
+                                    </tr>
+                                    <tr className="odd pointer">
+                                        <td>8</td>
+                                    <td>No.Of Video Ads</td>
+                                    <td>{this.state.firstarr.video_ad}</td>
+                                    </tr>
+                                    <tr className="even pointer">
+                                    <td>9</td>
+                                    <td>No.Of Image Ads</td>
+                                    <td>{Number(this.state.firstarr.active_ads)-Number(this.state.firstarr.video_ad)}</td>
+                                    </tr>
+                                    <tr className="odd pointer">
+                                    <td>10</td>
                                     <td>No of Admins</td>
                                     <td>{this.state.firstarr.total_admin}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                        <td>7</td>
+                                        <td>11</td>
                                     <td>Top Social Media Target</td>
                                     <td>{this.state.firstarr.top_data.platforms.top_platform}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                    <td>8</td>
+                                    <td>12</td>
                                     <td>Top Platform Target</td>
                                     <td>{this.state.firstarr.top_data.ad_target.top_device}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                        <td>10</td>
+                                        <td>13</td>
                                     <td>Average Growth/Decline of FB Like</td>
-                                    <td>{this.state.firstarr.avg.avg_fb_weekly}{this.state.firstarr.avg.avg_fb_weekly ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}} />}</td>
+                                    <td>{this.state.firstarr.avg.avg_fb_weekly}{this.state.firstarr.avg.avg_fb_weekly > 1 ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}} />}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                        <td>11</td>
+                                        <td>14</td>
                                     <td>Average Growth/Decline of Insta Followers</td>
-                                    <td>{this.state.firstarr.avg.avg_insta_weekly} {this.state.firstarr.avg.avg_insta_weekly ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}}/>}</td>
+                                    <td>{this.state.firstarr.avg.avg_insta_weekly} {this.state.firstarr.avg.avg_insta_weekly > 1 ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}}/>}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                    <td>12</td>
+                                    <td>15</td>
                                     <td>Page Name changed</td>
                                     <td>{this.state.firstarr.status.page_info.page_name_changed}</td>
                                     </tr>
@@ -282,32 +302,52 @@ class Comparepage extends Component {
                                     <td>{this.state.secondarr.avg.avg_monthly_ad}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                    <td>6</td>
+                                        <td>6</td>
+                                    <td>No.Of Promotional ads</td>
+                                    <td>{Number(this.state.secondarr.active_ads)-Number(this.state.secondarr.sponsor)}</td>
+                                    </tr>
+                                    <tr className="even pointer">
+                                    <td>7</td>
+                                    <td>No.Of Product/Services Ads</td>
+                                    <td>{this.state.secondarr.sponsor}</td>
+                                    </tr>
+                                    <tr className="odd pointer">
+                                        <td>8</td>
+                                    <td>No.Of Video Ads</td>
+                                    <td>{this.state.secondarr.video_ad}</td>
+                                    </tr>
+                                    <tr className="even pointer">
+                                    <td>9</td>
+                                    <td>No.Of Image Ads</td>
+                                    <td>{Number(this.state.secondarr.active_ads)-Number(this.state.secondarr.video_ad)}</td>
+                                    </tr>
+                                    <tr className="odd pointer">
+                                    <td>10</td>
                                     <td>No of Admins</td>
                                     <td>{this.state.secondarr.total_admin}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                        <td>7</td>
+                                        <td>11</td>
                                     <td>Top Social Media Target</td>
                                     <td>{this.state.secondarr.top_data.platforms.top_platform}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                    <td>8</td>
+                                    <td>12</td>
                                     <td>Top Platform Target</td>
                                     <td>{this.state.secondarr.top_data.ad_target.top_device}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                        <td>9</td>
+                                        <td>13</td>
                                     <td>Average Growth/Decline of FB Like</td>
-                                    <td>{this.state.secondarr.avg.avg_fb_weekly}{this.state.secondarr.avg.avg_fb_weekly ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}} />}</td>
+                                    <td>{this.state.secondarr.avg.avg_fb_weekly}{this.state.secondarr.avg.avg_fb_weekly > 1 ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}} />}</td>
                                     </tr>
                                     <tr className="odd pointer">
-                                        <td>10</td>
+                                        <td>14</td>
                                     <td>Average Growth/Decline of Insta Followers</td>
-                                    <td>{this.state.secondarr.avg.avg_insta_weekly} {this.state.secondarr.avg.avg_insta_weekly ? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}}/>}</td>
+                                    <td>{this.state.secondarr.avg.avg_insta_weekly} {this.state.secondarr.avg.avg_insta_weekly > 1? <i className='success fa fa-long-arrow-up' style={{marginLeft:'5px',color:'green'}}/>  : <i className='error fa fa-long-arrow-down' style={{marginLeft:'5px',color:'red'}}/>}</td>
                                     </tr>
                                     <tr className="even pointer">
-                                    <td>11</td>
+                                    <td>15</td>
                                     <td>Page Name changed</td>
                                     <td>{this.state.secondarr.status.page_info.page_name_changed}</td>
                                     </tr>
