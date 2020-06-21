@@ -89,7 +89,7 @@ class Signup extends Component {
                                                     <div className="clearfix" />
                                                     <div className="separator">
                                                         <p className="change_link">
-                                                        <a href="/login" className="to_register"> \Already Have an Account </a>
+                                                        <a href="/login" className="to_register"> Already Have an Account </a>
                                                         </p>
                                                         <div className="clearfix" />
                                                         <br />
