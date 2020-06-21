@@ -3,9 +3,10 @@ import {Formik, ErrorMessage} from 'formik'
 import {Redirect} from 'react-router-dom'
 import * as Yup from 'yup'
 import axios from 'axios'
+import show_noty from './Notification'
 class Login extends Component {
     state = {
-        username:'',
+        email:'',
         password:'',
         redirect:false
     }
@@ -23,9 +24,9 @@ class Login extends Component {
                         <div className="animate form login_form">
                         <section className="login_content">
                             <Formik initialValues={this.state} validationSchema={Yup.object().shape({
-                                username:Yup.string()
-                                .min(1,"Username must be longer than 1 character")
-                                .required("Username is required for login"),
+                                email:Yup.string()
+                                .email("Email is required")
+                                .required("Email is required for login"),
 
                                 password:Yup.string()
                                 .required("please enter a password")
@@ -34,14 +35,14 @@ class Login extends Component {
 
                             })  } onSubmit={(values,err)=>{
                                 console.log(err)
-                                let username=values.username
+                                let email = values.email
                                 let password = values.password
-                                console.log(username,password)
+                                console.log(email,password)
                                 let data={
-                                    "username":username,
+                                    "email":email,
                                     "password":password
                                 }
-                                axios.post('http://127.0.0.1:8000/api/token/',data,{
+                                axios.post('http://45.77.150.129/api/token/',data,{
                                     headers:{
                                         "Content-Type":"application/json"
                                     }
@@ -53,6 +54,12 @@ class Login extends Component {
                                         localStorage.setItem('Token',res.data.access)
                                         this.setState({redirect:true})
                                     }
+                                    else{
+                                        show_noty('error','Please verify ur email or Create an account')
+                                    }
+                                })
+                                .catch(err=>{
+                                    show_noty('error','Please verify ur email or Create an account')
                                 })
 
                             }} >
@@ -60,9 +67,9 @@ class Login extends Component {
 
                                                         <form onSubmit={handleSubmit}>
                                                         <h1>Login Form</h1>
-                                                        <ErrorMessage component="div" name="username" style={err}/>
+                                                        <ErrorMessage component="div" name="email" style={err}/>
                                                         <div>
-                                                            <input type="text" className="form-control" name="username" placeholder="Username" required value={values.name} onChange={handleChange} onBlur={handleBlur}/>
+                                                            <input type="text" className="form-control" name="email" placeholder="Email" required value={values.name} onChange={handleChange} onBlur={handleBlur}/>
                                                         </div>
                                                         <ErrorMessage component="div" name="password" style={err}/>
                                                         <div>

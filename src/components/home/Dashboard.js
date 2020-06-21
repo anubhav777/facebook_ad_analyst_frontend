@@ -8,7 +8,7 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         // Don't call this.setState() here!
-        this.state = { arr: null,geo:null,graph_data:null,pageid:null,adscountry:null,token:null,states_name:null,country_states:'All'};
+        this.state = { arr: null,geo:null,graph_data:null,pageid:null,adscountry:null,token:null,states_name:null,country_states:'All',disp_state:'Please click on States button to see targeted states'};
        
       }
     async componentDidMount(){
@@ -20,7 +20,7 @@ class Dashboard extends Component {
         this.graph_data(token,new_page)
         this.get_country(token,new_page)
         
-        await axios.get('http://127.0.0.1:8000/secondtry/1',{
+        await axios.get('http://45.77.150.129/secondtry/1',{
             headers:{
                 'Authorization':`Bearer ${token}`,
                 'productid':new_page,
@@ -41,7 +41,7 @@ class Dashboard extends Component {
         })
     }
     geo_data= async (token,new_page)=>{
-       await axios.get('http://127.0.0.1:8000/geo/',{
+       await axios.get('http://45.77.150.129/geo/',{
               headers:{
                 'Authorization':`Bearer ${token}`,
                 'productid':new_page,
@@ -52,7 +52,7 @@ class Dashboard extends Component {
             })
     }
     graph_data= async (token,new_page)=>{
-        await axios.get('http://127.0.0.1:8000/graph/',{
+        await axios.get('http://45.77.150.129/graph/',{
               headers:{
                 'Authorization':`Bearer ${token}`,
                 'productid':new_page,
@@ -63,7 +63,7 @@ class Dashboard extends Component {
             })
     }
     get_country= async (token,new_page)=>{
-        await axios.get('http://127.0.0.1:8000/getcountry/',{
+        await axios.get('http://45.77.150.129/getcountry/',{
             headers:{
               'Authorization':`Bearer ${token}`,
               'productid':new_page,
@@ -114,7 +114,7 @@ class Dashboard extends Component {
                         </div>
                         <div className="col-md-2 col-sm-2  ">
                         <div className='fc-right' style={{position:'absolute',top:-30,left:100}}>
-                        <a href="/"><h2 style={{display:'inline-block'}}>Graph/</h2></a><a href={`/ads?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Ads</h2></a>
+                        <a href="dashboard"><h2 style={{display:'inline-block'}}>Graph/</h2></a><a href={`/ads?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Ads</h2></a>
                         </div>
                         </div>
 
@@ -295,7 +295,7 @@ class Dashboard extends Component {
                                             <tr>
                                                 <td style={{width:'50px',textAlign:'center'}}>{i}</td>
                                                 <td style={{textAlign:'center'}}>{val}</td>
-                                                <td><button style={{fontSize:'13px'}} className='btn btn-info' onClick={(e)=>{e.preventDefault(); this.setState({country_states:val},()=>{this.get_country(this.state.token,this.state.pageid)})}}>States</button></td>
+                                                <td><button style={{fontSize:'13px'}} className='btn btn-info' onClick={(e)=>{e.preventDefault(); this.setState({country_states:val,disp_state:'Please Wait data is loading'},()=>{this.get_country(this.state.token,this.state.pageid)})}}>States</button></td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -318,7 +318,7 @@ class Dashboard extends Component {
                                 <div className="clearfix" />
                             </div>
                             <div className="x_content"  >
-                            {this.state.adscountry === null ? <div><h1>Loading</h1></div>:
+                    {this.state.states_name === null ? <div><h3>{this.state.disp_state}</h3></div>:
                             <table className style={{width: '100%'}}>
                             <thead style={{textAlign:'left'}}><tr>
                                 
@@ -425,134 +425,7 @@ class Dashboard extends Component {
                             </div>
                         </div>
                         </div>
-                        <div className="row">
-                        {/* Start to do list */}
-                        <div className="col-md-6 col-sm-6 ">
-                            <div className="x_panel">
-                            <div className="x_title">
-                                <h2>To Do List <small>Sample tasks</small></h2>
-                                <ul className="nav navbar-right panel_toolbox">
-                                <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
-                                </li>
-                                <li className="dropdown">
-                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench" /></a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">Settings 1</a>
-                                    <a className="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a className="close-link"><i className="fa fa-close" /></a>
-                                </li>
-                                </ul>
-                                <div className="clearfix" />
-                            </div>
-                            
-                            </div>
-                        </div>
-                        {/* End to do list */}
-                        {/* start of weather widget */}
-                        <div className="col-md-6 col-sm-6 ">
-                            <div className="x_panel">
-                            <div className="x_title">
-                                <h2>Daily active users <small>Sessions</small></h2>
-                                <ul className="nav navbar-right panel_toolbox">
-                                <li><a className="collapse-link"><i className="fa fa-chevron-up" /></a>
-                                </li>
-                                <li className="dropdown">
-                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench" /></a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">Settings 1</a>
-                                    <a className="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a className="close-link"><i className="fa fa-close" /></a>
-                                </li>
-                                </ul>
-                                <div className="clearfix" />
-                            </div>
-                            <div className="x_content">
-                                <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="temperature"><b>Monday</b>, 07:30 AM
-                                    <span>F</span>
-                                    <span><b>C</b></span>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="row">
-                                <div className="col-sm-4">
-                                    <div className="weather-icon">
-                                    <canvas height={84} width={84} id="partly-cloudy-day" />
-                                    </div>
-                                </div>
-                                <div className="col-sm-8">
-                                    <div className="weather-text">
-                                    <h2>Texas <br /><i>Partly Cloudy Day</i></h2>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="col-sm-12">
-                                <div className="weather-text pull-right">
-                                    <h3 className="degrees">23</h3>
-                                </div>
-                                </div>
-                                <div className="clearfix" />
-                                <div className="row weather-days">
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Mon</h2>
-                                    <h3 className="degrees">25</h3>
-                                    <canvas id="clear-day" width={32} height={32} />
-                                    <h5>15 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Tue</h2>
-                                    <h3 className="degrees">25</h3>
-                                    <canvas height={32} width={32} id="rain" />
-                                    <h5>12 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Wed</h2>
-                                    <h3 className="degrees">27</h3>
-                                    <canvas height={32} width={32} id="snow" />
-                                    <h5>14 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Thu</h2>
-                                    <h3 className="degrees">28</h3>
-                                    <canvas height={32} width={32} id="sleet" />
-                                    <h5>15 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Fri</h2>
-                                    <h3 className="degrees">28</h3>
-                                    <canvas height={32} width={32} id="wind" />
-                                    <h5>11 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="col-sm-2">
-                                    <div className="daily-weather">
-                                    <h2 className="day">Sat</h2>
-                                    <h3 className="degrees">26</h3>
-                                    <canvas height={32} width={32} id="cloudy" />
-                                    <h5>10 <i>km/h</i></h5>
-                                    </div>
-                                </div>
-                                <div className="clearfix" />
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        {/* end of weather widget */}
-                        </div>
+                     
                     </div>
                     </div>
                 </div>

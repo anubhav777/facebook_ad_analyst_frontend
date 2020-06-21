@@ -11,11 +11,12 @@ class User_page extends Component {
     }
     componentDidMount(){
         let token=localStorage.getItem('Token')
+        this.setState({token:token})
         this.userpages(token)
        
     }
     userpages=(token)=>{
-        axios.get('http://127.0.0.1:8000/addpage/1',{
+        axios.get('http://45.77.150.129/addpage/1',{
             headers:{
                 'Authorization':`Bearer ${token}`,
             }
@@ -23,7 +24,7 @@ class User_page extends Component {
         .then(res =>{
             console.log(res.data)
             this.setState(
-                { newarr:res.data.status,token:token }
+                { newarr:res.data.status }
             )
         })
 
@@ -31,7 +32,7 @@ class User_page extends Component {
     search_query=(e)=>{
      
      if(e.target.value.length >=3){
-      axios.get('http://127.0.0.1:8000/adsdisplay/',{
+      axios.get('http://45.77.150.129/adsdisplay/',{
         headers:{
             'Authorization':`Bearer ${this.state.token}`,
             'pagename':e.target.value
@@ -47,7 +48,7 @@ class User_page extends Component {
     }
     sendval=(val)=>(e)=>{
       e.preventDefault()
-      axios.post('http://127.0.0.1:8000/secondtry/1','',{
+      axios.post('http://45.77.150.129/secondtry/1','',{
         headers:{
             'Authorization':`Bearer ${this.state.token}`,
             'productid':val,
@@ -56,8 +57,12 @@ class User_page extends Component {
         }
     })
     .then( async res =>{
-        if(res.data.status === 'success'){
-        await axios.post('http://127.0.0.1:8000/addpage/1','',{
+        if(res.data.userid === 1)
+        {
+          this.userpages(this.state.token)
+        }
+        else{
+        await axios.post('http://45.77.150.129/addpage/1','',{
         headers:{
             'Authorization':`Bearer ${this.state.token}`,
             'productid':val,
@@ -65,8 +70,9 @@ class User_page extends Component {
         }
     })
     .then(res=>{
-      console.log(res.data)
+      console.log(res)
       if(res.data.status === 'success'){
+        print('ref')
       this.userpages(this.state.token)
       }
     })
@@ -79,7 +85,7 @@ class User_page extends Component {
     }
     delete_page=(id)=>async (e)=>{
       e.preventDefault()
-      await axios.delete(`http://127.0.0.1:8000/addpage/${id}`,{
+      await axios.delete(`http://45.77.150.129/addpage/${id}`,{
         headers:{
             'Authorization':`Bearer ${this.state.token}`,
            
@@ -149,7 +155,7 @@ class User_page extends Component {
             },
             {
                 name:'Pages',
-                cell:row=><Link to={`/?page=${row.productid.page_id}`}><h6>{row.productid.page_name}</h6></Link>,
+                cell:row=><Link to={`/dashboard?page=${row.productid.page_id}`}><h6>{row.productid.page_name}</h6></Link>,
                 sortable:true
             },
             {

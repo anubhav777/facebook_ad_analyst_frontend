@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
-
+import {Link,Redirect} from 'react-router-dom'
+import token_genrator from '../extras/Token' 
 class Sidenav extends Component {
+    state={
+        redirect:false
+    }
+    componentDidMount() {
+        if(!token_genrator()){
+          
+            this.setState({redirect:true})
+          }
+    }
     render() {
+        if(this.state.redirect){
+            return (<Redirect to ="/login"/>)
+        }
+        else{
         return (
                 <div className="col-md-3 left_col menu_fixed">
                 <div className="left_col scroll-view">
@@ -28,7 +42,9 @@ class Sidenav extends Component {
                            
                             </ul>
                         </li>
-                       
+                      <li>  <Link onClick={()=>{localStorage.clear()}} to='/login'><a><i className="fa fa-edit" /> Logout </a></Link>
+                          
+                        </li>
                         </ul>
                     </div>
                     </div>
@@ -53,6 +69,7 @@ class Sidenav extends Component {
             </div>
             </div>
         );
+        }
     }
 }
 

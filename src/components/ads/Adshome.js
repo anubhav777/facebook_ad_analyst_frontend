@@ -23,7 +23,7 @@ class Adshome extends Component {
     }
     adsdata=()=>{
         let token=localStorage.getItem('Token')
-        axios.get('http://127.0.0.1:8000/newtry/',{
+        axios.get('http://45.77.150.129/newtry/',{
             headers:{
                 'Authorization':`Bearer ${token}`,
                 'productid':this.state.pageid,
@@ -143,7 +143,7 @@ class Adshome extends Component {
                         <button className='btn btn-info' onClick={(e)=>{e.preventDefault(); this.adsdata()}}>Update</button>
 
                         <div className='fc-right' style={{display:'inline-block', marginLeft:'20px'}}>
-                        <a href={`/?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Graph/</h2></a><a href={`/ads?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Ads</h2></a>
+                        <a href={`/dashboard?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Graph/</h2></a><a href={`/ads?page=${this.state.pageid}`}><h2 style={{display:'inline-block'}}>Ads</h2></a>
                         </div>
                         
          </div>

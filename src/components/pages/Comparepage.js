@@ -14,7 +14,7 @@ class Comparepage extends Component {
         this.userpages(token)
     }
     userpages=(token)=>{
-        axios.get('http://127.0.0.1:8000/addpage/1',{
+        axios.get('http://45.77.150.129/addpage/1',{
             headers:{
                 'Authorization':`Bearer ${token}`,
             }
@@ -48,7 +48,7 @@ class Comparepage extends Component {
     }
     getdata=(id,params)=>{
         let dats=''
-        axios.get('http://127.0.0.1:8000/compare/',{
+        axios.get('http://45.77.150.129/compare/',{
             headers:{
                 'Authorization':`Bearer ${this.state.token}`,
                 'productid':id,

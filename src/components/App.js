@@ -8,12 +8,15 @@ import Login from './extras/Login';
 import Userpage from './pages/Userpage'
 import Adshome from './ads/Adshome'
 import Comparepage from './pages/Comparepage'
+import Signup from './extras/Signup'
+import Verification from './extras/Verification';
+
 function App() {
   return (
       <Router>
           <React.Fragment>
               <Switch>
-              <Route exact path="/" render={(props)=>(
+              <Route exact path="/dashboard" render={(props)=>(
               <React.Fragment>
               <body className="nav-md">
               <div className="container body">
@@ -27,7 +30,9 @@ function App() {
             </React.Fragment>
           )}/>
             <Route exact path='/login' component={Login}/>
+            <Route exact path='/' component={Signup}/>
             <Route exact path='/map' component={Newmap}/>
+            <Route exact path='/verify' component={Verification}/>
             <Route exact path ='/pages' render={(props)=>(
               <React.Fragment>
               <body className="nav-md">

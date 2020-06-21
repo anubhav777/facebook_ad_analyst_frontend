@@ -11,9 +11,12 @@ class Topheader extends Component {
                 <nav className="nav navbar-nav">
                 <ul className=" navbar-right">
                     <li className="nav-item dropdown open" style={{paddingLeft: 15}}>
-                    <a href="javascript:;" className="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                        John Doe
-                    </a>
+                    <img onClick={()=>{window.print()}} style={{width:'42px',
+                  height:'42px',
+                  borderRadius:'50%',
+                  objectFit:'cover',
+                  verticalAlign:'middle'}} alt={"pagesimg"} src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fdesignbolts%2Ffree-multimedia%2F1024%2FPrinter-icon.png&f=1&nofb=1'/>
+                   
                     <div className="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a className="dropdown-item" href="javascript:;"> Profile</a>
                         <a className="dropdown-item" href="javascript:;">

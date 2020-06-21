@@ -76,7 +76,7 @@ class Chartpage extends Component {
         let chartdisp=this.state.chartdisp
         const reducer = (accumulator, currentValue) => Number(accumulator) + Number(currentValue)
         if (chartdisp === 'ads'){
-        await axios.get('http://127.0.0.1:8000/adanalysis/',{
+        await axios.get('http://45.77.150.129/adanalysis/',{
             headers:{
               'Authorization':`Bearer ${token}`,
               'productid':this.props.pageid,
@@ -132,7 +132,7 @@ class Chartpage extends Component {
           })
         }
         else{
-          await axios.get('http://127.0.0.1:8000/getsocial/',{
+          await axios.get('http://45.77.150.129/getsocial/',{
             headers:{
               'Authorization':`Bearer ${token}`,
               'productid':this.props.pageid,
