@@ -49,16 +49,17 @@ class Login extends Component {
                                 })
                                 .then(res=>{
                                     console.log(res)
-                                    if (res.status === 200){
+                                    if (res.data.status === 'success'){
                                         console.log(res.data.access)
                                         localStorage.setItem('Token',res.data.access)
-                                        this.setState({redirect:true})
+                                        // this.setState({redirect:true})
                                     }
                                     else{
-                                        show_noty('error','Please verify ur email or Create an account')
+                                        show_noty('error',res.data.text)
                                     }
                                 })
                                 .catch(err=>{
+                                    
                                     show_noty('error','Please verify ur email or Create an account')
                                 })
 

@@ -30,17 +30,10 @@ class Sidenav extends Component {
                     <div className="menu_section">
                        
                         <ul className="nav side-menu">
-                        <li><a><i className="fa fa-home" /> Home <span className="fa fa-chevron-down" /></a>
-                            <ul className="nav child_menu">
-                            <li><a href="/pages">Pages</a></li>
-                          
-                            </ul>
+                        <li><Link to ='/pages'><a><i className="fa fa-home" /> Home</a></Link>
                         </li>
-                        <li><a><i className="fa fa-edit" /> Compare <span className="fa fa-chevron-down" /></a>
-                            <ul className="nav child_menu">
-                            <li><a href="/compare">Compare page</a></li>
-                           
-                            </ul>
+                        <li><Link to ='/compare'><a><i className="fa fa-edit" /> Compare </a></Link>
+                            
                         </li>
                       <li>  <Link onClick={()=>{localStorage.clear()}} to='/login'><a><i className="fa fa-edit" /> Logout </a></Link>
                           
