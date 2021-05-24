@@ -1,7 +1,6 @@
 # Facebook_Ad_Analyst_Frontend
-<h1>Facebook Ad Analyst </h1><br>
 <h2>Overview</h2>
-Facebook AD Analyst is a web scrapper that scrapes all the information regarding the ads of any company who have marketed their ads on top Social media platform such as Facebook and Instagram. THe users <b>do not need Facebook graph api</b> inorder to scrape the ads avaialble on facebook<br>
+Facebook AD Analyst is a web scrapper that scrapes all the information regarding the ads of any company who have marketed their ads on top Social media platform such as Facebook and Instagram. The users <b>do not need Facebook graph api</b> inorder to scrape the ads avaialble on facebook<br>
 
 <h2>Technology Used/Framework Used:</h2> <br>
 •	React JS<br>
